@@ -30,6 +30,7 @@ export class AuthService {
                 name: newUser.name,
                 email: newUser.email,
                 phone: newUser.phone,
+                isVeryfied:user.isVeryfied,
                 role: newUser.role
             }
         }
