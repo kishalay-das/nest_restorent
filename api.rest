@@ -1,0 +1,138 @@
+POST http://localhost:3030/auth/register
+Content-Type: application/json
+
+{
+    "name": "Sudipta Ghosh",
+    "email": "kalyugasura@gmail.com",
+    "phone": "9330571275",
+    "password": "Sudipta@2002"
+}
+
+###
+POST http://localhost:3050/auth/login
+Content-Type: application/json
+
+{
+    "email": "kishalaydas09@gmail.com",
+    "password": "Kishalay@2002"
+}
+
+###
+GET http://localhost:3050/auth/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxNjY5NzYzLCJleHAiOjE3NzIyNzQ1NjN9.xoxVcnNjj6Ti75iyJ9WUS7a_oIrqcpWJ1eJtcD3px9I
+
+###
+POST http://localhost:3050/restorent/register?lat=22.5752931&lng=88.4215866
+Content-Type: application/json
+
+{
+  "name": "Dream Restaurant Kolkata",
+  "description": "Looking for a place with excellent food? Look no further than Dream Restaurant! Their menu offers a wide variety of delicious dishes that are sure to satisfy any craving. With top-notch service and a welcoming atmosphere, it is a great place to dine. Source: Justdial.com",
+  "addressLine": "DC-22, Sector 1, Bidhannagar, Kolkata, 700064, India",
+  "city": "Kolkata",
+  "state": "West Bengal",
+  "country": "India",
+  "pincode": "700064"
+}
+
+# 22.5804288,88.4768768,8363m
+# 22.5804288,88.4768768,8363m
+###
+GET  http://localhost:3050/restorent/nearby?lat=22.5752931&lng=88.4215866
+
+###
+POST http://localhost:3050/order/create?lat=22.5752931&lng=88.4215866
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imtpc2hhbGF5ZGFzOTcxQGdtYWlsLmNvbSIsInN1YiI6IjY5OTQxYjkxNTExYjlhMWEyYjY4MTc2NiIsInJvbGUiOiJyZXN0b3JlbnQiLCJpYXQiOjE3NzEzOTcyNDksImV4cCI6MTc3MjAwMjA0OX0.MnS1Ig4u7E4e8m53rRRWT_gMItG7tMbinNGr9rEK0NM
+
+{
+  "restaurantId": "69945a2558916c1279fcdaf4",
+  "items": [
+    {
+      "itemId": "6995b15c905d5d257d9bd4ff",
+      "quantity": 2
+    }
+  ],
+  "deliveryAddress": "manicasadona, kolkata"
+}
+
+###
+GET http://localhost:3050/order/restorent/69945a2558916c1279fcdaf4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imtpc2hhbGF5ZGFzMDlAZ21haWwuY29tIiwic3ViIjoiNjk5NWI0NmQ2MjgwMmZhMTU3NDg2OWFkIiwicm9sZSI6InJlc3RvcmVudCIsImlhdCI6MTc3MTgzMTY3NiwiZXhwIjoxNzcyNDM2NDc2fQ.6wbWd9ukTEasiG-6KIK5f0Mhc2Qa2_JB06hwUW7723M
+
+###
+GET http://localhost:3030/auth/send-otp
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxNDk2NDU1LCJleHAiOjE3NzIxMDEyNTV9.UOaIs7cnhMZkGMMTpK_ZdEg_ou47fJphaCJ1_NoMI6Q
+
+###
+POST http://localhost:3030/auth/verify-otp
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxNDk2NDU1LCJleHAiOjE3NzIxMDEyNTV9.UOaIs7cnhMZkGMMTpK_ZdEg_ou47fJphaCJ1_NoMI6Q
+
+{
+  "otp": "674382"
+}
+
+###
+GET http://localhost:3050/menu/69945a2558916c1279fcdaf4?page=1&limit=1
+
+###
+POST http://localhost:3050/order/create?lat=22.5752931&lng=88.4215866
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxOTEwNzg3LCJleHAiOjE3NzI1MTU1ODd9.SymupP6U9oxEiWnyhf1c_CRqoLRPVtMMEfSKuFFF1jk
+
+{
+  "restaurantId": "6995b55062802fa1574869b5",
+  "items": [{
+    "itemId": "699d348c169bc0baada851a1",
+    "quantity": 3
+  }],
+  "deliveryAddress": "Mani Casadona, Ecospace, Newtown, Kolkata, 700016"
+}
+
+###
+GET http://localhost:3050/order/restorent/6995b55062802fa1574869b5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imtpc2hhbGF5ZGFzMDlAZ21haWwuY29tIiwic3ViIjoiNjk5NWI0NmQ2MjgwMmZhMTU3NDg2OWFkIiwicm9sZSI6InJlc3RvcmVudCIsImlhdCI6MTc3MTkxMTA5NiwiZXhwIjoxNzcyNTE1ODk2fQ.vL0YweEMzIklAWaDZWUQKPhfo_HBUY-QdXV52gIrUNI
+
+###
+GET http://localhost:3050/order/accept/699d53336a2bbc0f96d8dc77
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imtpc2hhbGF5ZGFzMDlAZ21haWwuY29tIiwic3ViIjoiNjk5NWI0NmQ2MjgwMmZhMTU3NDg2OWFkIiwicm9sZSI6InJlc3RvcmVudCIsImlhdCI6MTc3MTkxMTA5NiwiZXhwIjoxNzcyNTE1ODk2fQ.vL0YweEMzIklAWaDZWUQKPhfo_HBUY-QdXV52gIrUNI
+
+###
+GET http://localhost:3050/order/myorder
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxOTEwNzg3LCJleHAiOjE3NzI1MTU1ODd9.SymupP6U9oxEiWnyhf1c_CRqoLRPVtMMEfSKuFFF1jk
+
+###
+POST http://localhost:3050/payment/make-payment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxOTEwNzg3LCJleHAiOjE3NzI1MTU1ODd9.SymupP6U9oxEiWnyhf1c_CRqoLRPVtMMEfSKuFFF1jk
+
+{
+  "orders":[
+    "699d56fe60c3aad4ccafa56c", "699d53336a2bbc0f96d8dc77"
+  ]
+}
+
+###
+POST http://localhost:3050/payment/checkout
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImthbHl1Z2FzdXJhQGdtYWlsLmNvbSIsInN1YiI6IjY5OTZlM2RmMmEwZWFlMDMwODJmZTBlZiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzcxOTEwNzg3LCJleHAiOjE3NzI1MTU1ODd9.SymupP6U9oxEiWnyhf1c_CRqoLRPVtMMEfSKuFFF1jk
+
+{
+  "orderIds":["699d56fe60c3aad4ccafa56c", "699d53336a2bbc0f96d8dc77"],
+  "items": [
+    {
+      "name": "Indian Chilli Chicken",
+      "price": 111,
+      "qty": 3,
+      "image": "https://res.cloudinary.com/dvt8qhmnx/image/upload/v1771910284/uploads/l3ghjxg8zy6wgmlcq2uv.jpg"
+    },
+    {
+      "name": "Indian Chilli Chicken",
+      "price": 111,
+      "qty": 3,
+      "image": "https://res.cloudinary.com/dvt8qhmnx/image/upload/v1771910284/uploads/l3ghjxg8zy6wgmlcq2uv.jpg"
+    }
+  ]
+}

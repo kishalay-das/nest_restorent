@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: local-mongo
+    ports:
+      - "27020:27017"
+    volumes:
+      - restorent_data:/data/db
+    restart: unless-stopped
+
+  stripe:
+    image: stripe/stripe-cli
+    container_name: stripe_cli
+    network_mode: "host"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    command: listen --forward-to http://localhost:3050/payment/webhook
+
+volumes:
+  restorent_data:
